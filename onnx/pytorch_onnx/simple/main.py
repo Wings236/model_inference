@@ -4,6 +4,7 @@ import requests
 import numpy as np
 import torch
 from torch import nn
+from typing import Dict
 
 class SuperResolutionNet(nn.Module):
     def __init__(self, upscale_factor: float) -> None:
@@ -40,7 +41,7 @@ for url, name in zip(urls, names):
 def init_torch_model():
     torch_model = SuperResolutionNet(upscale_factor=3)
 
-    state_dict:dict[str, torch.Tensor] = torch.load("srcnn.pth")['state_dict']
+    state_dict: Dict[str, torch.Tensor] = torch.load("srcnn.pth")['state_dict']
 
     # Adapt the checkpoint
     for old_key in list(state_dict.keys()):
