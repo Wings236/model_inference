@@ -81,6 +81,3 @@ with torch.no_grad():
         input_names=['input', 'factor'],
         output_names=['output']
     )
-
-
-
