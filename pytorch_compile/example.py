@@ -6,7 +6,7 @@ def fn(x):
     return b
 
 new_fn = torch.compile(fn, backend="inductor")
-input_tensor = torch.randn(100).to(device="cuda:1")
+input_tensor = torch.randn(100).to(device="cuda:0")
 a = new_fn(input_tensor)
 
 t1 = time.time()
